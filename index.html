@@ -1,0 +1,1037 @@
+<!DOCTYPE html>
+<html lang="uz">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>Kiberxavfsizlik Treningi</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=DM+Mono:wght@400;500&display=swap"
+    rel="stylesheet" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f0ede8;
+      min-height: 100vh;
+    }
+
+    /* TOP BANNER */
+    .top-banner {
+      background: #1a1a1a;
+      color: #888;
+      text-align: center;
+      padding: 10px 20px;
+      font-size: 11px;
+      letter-spacing: 2px;
+      font-weight: 500;
+    }
+
+    .top-banner span {
+      color: #e8744a;
+    }
+
+    /* HERO */
+    .hero {
+      padding: 56px 24px 40px;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 52px;
+      font-weight: 800;
+      color: #1a1a1a;
+      line-height: 1.1;
+      margin-bottom: 12px;
+    }
+
+    .hero h1 span {
+      color: #e8744a;
+    }
+
+    .hero p {
+      font-size: 17px;
+      color: #555;
+      max-width: 500px;
+      margin: 0 auto 0;
+      line-height: 1.6;
+    }
+
+    /* TWO PANELS */
+    .panels {
+      display: flex;
+      gap: 28px;
+      align-items: flex-start;
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0 24px 60px;
+    }
+
+    @media(max-width:720px) {
+      .panels {
+        flex-direction: column;
+      }
+    }
+
+    /* BROWSER FRAME */
+    .browser {
+      flex: 1;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 8px 40px rgba(0, 0, 0, .15);
+    }
+
+    .browser-bar {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 14px;
+    }
+
+    .browser-bar.dark {
+      background: #2d2d2d;
+    }
+
+    .browser-bar.light {
+      background: #e8e8e8;
+    }
+
+    .b-dots {
+      display: flex;
+      gap: 6px;
+    }
+
+    .b-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+    }
+
+    .b-dot.r {
+      background: #ff5f57;
+    }
+
+    .b-dot.y {
+      background: #febc2e;
+    }
+
+    .b-dot.g {
+      background: #28c840;
+    }
+
+    .b-url-dark {
+      flex: 1;
+      background: #3d3d3d;
+      border-radius: 6px;
+      padding: 5px 12px;
+      font-size: 11px;
+      font-family: 'DM Mono', monospace;
+      color: #aaa;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .b-url-light {
+      flex: 1;
+      background: #fff;
+      border-radius: 6px;
+      padding: 5px 12px;
+      font-size: 11px;
+      font-family: 'DM Mono', monospace;
+      color: #555;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      border: 1px solid #d0d0d0;
+    }
+
+    .url-ig {
+      color: #cc2366;
+      font-size: 10px;
+    }
+
+    .url-lock {
+      color: #28c840;
+      font-size: 10px;
+    }
+
+    /* LEFT PANEL — Profile */
+    .profile-panel {
+      background: #fff;
+    }
+
+    .profile-body {
+      padding: 20px;
+    }
+
+    .prof-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 14px;
+    }
+
+    .prof-avatar {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      flex-shrink: 0;
+      background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+      padding: 2.5px;
+    }
+
+    .prof-avatar-inner {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      border: 2.5px solid white;
+      background: linear-gradient(135deg, #a18cd1, #fbc2eb);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      font-weight: 700;
+      color: white;
+    }
+
+    .prof-name-wrap {}
+
+    .prof-name {
+      font-size: 16px;
+      font-weight: 700;
+      color: #1a1a1a;
+      margin-bottom: 2px;
+    }
+
+    .prof-username {
+      font-size: 13px;
+      color: #8e8e8e;
+    }
+
+    .prof-follow-btn {
+      margin-top: 8px;
+      background: #e8744a;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      padding: 7px 20px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .prof-stats {
+      display: flex;
+      gap: 24px;
+      margin-bottom: 16px;
+    }
+
+    .prof-stat {}
+
+    .prof-stat-n {
+      font-size: 16px;
+      font-weight: 700;
+      color: #1a1a1a;
+    }
+
+    .prof-stat-l {
+      font-size: 12px;
+      color: #8e8e8e;
+    }
+
+    .prof-bio {
+      font-size: 13px;
+      line-height: 1.8;
+      color: #1a1a1a;
+      margin-bottom: 0;
+    }
+
+    .prof-bio-row {
+      display: flex;
+      gap: 6px;
+      margin-bottom: 2px;
+    }
+
+    /* Hint section */
+    .hint-section {
+      border-top: 1px solid #f0f0f0;
+      margin-top: 16px;
+      padding: 14px 20px;
+    }
+
+    .hint-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      color: #e8744a;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .hint-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .hint-tag {
+      background: #fff;
+      border: 1.5px solid #e0e0e0;
+      border-radius: 20px;
+      padding: 5px 14px;
+      font-size: 13px;
+      font-weight: 500;
+      color: #1a1a1a;
+      cursor: pointer;
+      transition: all .15s;
+      font-family: 'Inter', sans-serif;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .hint-tag:hover {
+      background: #e8744a;
+      color: white;
+      border-color: #e8744a;
+    }
+
+    .hint-tag.used {
+      background: #e8744a;
+      color: white;
+      border-color: #e8744a;
+      opacity: .5;
+      pointer-events: none;
+    }
+
+    /* RIGHT PANEL — Login */
+    .login-panel {
+      background: #fff;
+      flex: 0 0 380px;
+    }
+
+    @media(max-width:720px) {
+      .login-panel {
+        flex: 1;
+      }
+    }
+
+    .login-body {
+      padding: 32px 28px;
+    }
+
+    .ig-logo-wrap {
+      text-align: center;
+      margin-bottom: 22px;
+    }
+
+    .ig-logo-img {
+      font-size: 44px;
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    .ig-logo-text {
+      font-family: 'Georgia', serif;
+      font-size: 36px;
+      background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .ig-input {
+      width: 100%;
+      background: #fafafa;
+      border: 1px solid #dbdbdb;
+      border-radius: 6px;
+      padding: 11px 14px;
+      font-size: 14px;
+      margin-bottom: 8px;
+      font-family: 'Inter', sans-serif;
+      color: #1a1a1a;
+      outline: none;
+      transition: border .15s;
+    }
+
+    .ig-input:focus {
+      border-color: #a8a8a8;
+      background: #fff;
+    }
+
+    .ig-input[readonly] {
+      color: #8e8e8e;
+    }
+
+    .ig-login-btn {
+      width: 100%;
+      margin-top: 2px;
+      background: linear-gradient(90deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      padding: 11px;
+      font-size: 15px;
+      font-weight: 700;
+      font-family: 'Inter', sans-serif;
+      cursor: pointer;
+      transition: opacity .15s;
+    }
+
+    .ig-login-btn:hover:not(:disabled) {
+      opacity: .9;
+    }
+
+    .ig-login-btn:disabled {
+      background: #b2dffc;
+      cursor: not-allowed;
+    }
+
+    /* Error */
+    .ig-err {
+      display: none;
+      margin-top: 10px;
+      background: #fff0f0;
+      border: 1px solid #fecaca;
+      border-radius: 8px;
+      padding: 10px 14px;
+      align-items: flex-start;
+      gap: 8px;
+    }
+
+    .ig-err.show {
+      display: flex;
+    }
+
+    .ig-err-title {
+      font-size: 13px;
+      font-weight: 700;
+      color: #dc2626;
+    }
+
+    .ig-err-sub {
+      font-size: 12px;
+      color: #991b1b;
+      margin-top: 2px;
+    }
+
+    .l-tries {
+      font-size: 11px;
+      color: #8e8e8e;
+      text-align: center;
+      margin-top: 6px;
+    }
+
+    /* Attempt log */
+    .attempt-log {
+      margin-top: 10px;
+    }
+
+    .attempt-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 4px 0;
+      border-bottom: .5px solid #f5f5f5;
+      font-size: 12px;
+    }
+
+    .attempt-pw {
+      font-family: 'DM Mono', monospace;
+      color: #1a1a1a;
+      flex: 1;
+      font-size: 11px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .a-badge {
+      padding: 2px 8px;
+      border-radius: 10px;
+      font-size: 10px;
+      font-weight: 700;
+    }
+
+    .a-badge.fail {
+      background: #fef2f2;
+      color: #dc2626;
+    }
+
+    .a-badge.ok {
+      background: #f0fdf4;
+      color: #16a34a;
+    }
+
+    /* 2FA */
+    .twofa-panel {
+      display: none;
+      margin-top: 12px;
+      background: #eff6ff;
+      border: 1px solid #bfdbfe;
+      border-radius: 8px;
+      padding: 14px;
+    }
+
+    .twofa-panel.show {
+      display: block;
+    }
+
+    .twofa-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: #1d4ed8;
+      margin-bottom: 4px;
+    }
+
+    .twofa-sub {
+      font-size: 12px;
+      color: #555;
+      margin-bottom: 10px;
+      line-height: 1.5;
+    }
+
+    .code-boxes {
+      display: flex;
+      gap: 6px;
+      margin-bottom: 10px;
+    }
+
+    .code-box {
+      flex: 1;
+      height: 44px;
+      border: 1.5px solid #bfdbfe;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 17px;
+      font-weight: 700;
+      color: #1d4ed8;
+      font-family: 'DM Mono', monospace;
+      background: #fff;
+      transition: all .2s;
+    }
+
+    .code-box.filled {
+      border-color: #1d4ed8;
+      background: #eff6ff;
+    }
+
+    .code-input {
+      width: 100%;
+      border: 1px solid #bfdbfe;
+      border-radius: 6px;
+      padding: 9px;
+      font-size: 18px;
+      font-family: 'DM Mono', monospace;
+      color: #1d4ed8;
+      background: #fff;
+      outline: none;
+      text-align: center;
+      letter-spacing: 6px;
+      margin-bottom: 8px;
+    }
+
+    .code-input:focus {
+      border-color: #1d4ed8;
+    }
+
+    .twofa-btn {
+      width: 100%;
+      background: #1d4ed8;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      padding: 9px;
+      font-size: 14px;
+      font-weight: 600;
+      font-family: 'Inter', sans-serif;
+      cursor: pointer;
+    }
+
+    .twofa-btn:hover {
+      opacity: .9;
+    }
+
+    .twofa-err {
+      display: none;
+      font-size: 12px;
+      color: #dc2626;
+      text-align: center;
+      margin-top: 6px;
+      font-weight: 500;
+    }
+
+    .twofa-err.show {
+      display: block;
+    }
+
+    /* Success */
+    .success-panel {
+      display: none;
+      margin-top: 12px;
+      background: #f0fdf4;
+      border: 1px solid #bbf7d0;
+      border-radius: 8px;
+      padding: 14px;
+      text-align: center;
+    }
+
+    .success-panel.show {
+      display: block;
+    }
+
+    .success-icon {
+      font-size: 28px;
+      margin-bottom: 6px;
+    }
+
+    .success-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: #14532d;
+      margin-bottom: 4px;
+    }
+
+    .success-sub {
+      font-size: 12px;
+      color: #166534;
+      line-height: 1.6;
+    }
+
+    .pw-pill {
+      font-family: 'DM Mono', monospace;
+      font-weight: 700;
+      background: rgba(0, 0, 0, .07);
+      padding: 1px 7px;
+      border-radius: 4px;
+    }
+
+    .reset-btn {
+      display: none;
+      margin-top: 10px;
+      background: #f5f5f5;
+      border: none;
+      border-radius: 8px;
+      padding: 9px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      color: #555;
+      width: 100%;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .reset-btn:hover {
+      background: #e8e8e8;
+    }
+
+    .reset-btn.show {
+      display: block;
+    }
+
+    /* 2FA Toggle */
+    .twofa-toggle-bar {
+      background: #fff;
+      border-radius: 10px;
+      padding: 12px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 20px;
+      border: 1.5px solid #e0e0e0;
+      max-width: 1000px;
+      margin: 0 auto 20px;
+      padding-left: 24px;
+      padding-right: 24px;
+      width: calc(100% - 48px);
+      max-width: 952px;
+    }
+
+    .tfa-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .tfa-icon {
+      font-size: 20px;
+    }
+
+    .tfa-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: #1a1a1a;
+    }
+
+    .tfa-sub {
+      font-size: 12px;
+      color: #8e8e8e;
+      margin-top: 1px;
+    }
+
+    .tfa-right {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .tfa-status {
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .tfa-status.on {
+      color: #16a34a;
+    }
+
+    .tfa-status.off {
+      color: #dc2626;
+    }
+
+    .toggle {
+      position: relative;
+      width: 50px;
+      height: 26px;
+      cursor: pointer;
+    }
+
+    .toggle input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .toggle-slider {
+      position: absolute;
+      inset: 0;
+      background: #ccc;
+      border-radius: 99px;
+      transition: .25s;
+    }
+
+    .toggle-slider::before {
+      content: '';
+      position: absolute;
+      width: 22px;
+      height: 22px;
+      left: 2px;
+      top: 2px;
+      background: white;
+      border-radius: 50%;
+      transition: .25s;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, .3);
+    }
+
+    .toggle input:checked+.toggle-slider {
+      background: #16a34a;
+    }
+
+    .toggle input:checked+.toggle-slider::before {
+      transform: translateX(24px);
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- TOP BANNER -->
+  <div class="top-banner">
+    ▲ KIBERXAVFSIZLIK — <span>TA'LIM MAQSADIDA</span> — Informatika fani Q.Xudayberdiyev
+  </div>
+
+  <!-- HERO -->
+  <div class="hero">
+    <h1>Profilidan<br><span>parolini top!</span></h1>
+    <p>Quyidagi Instagram profilni sinchiklab o'rgan. Ma'lumotlardan foydalanib parolni taxmin qil va loginni bosib
+      ko'r.</p>
+  </div>
+
+  <!-- 2FA TOGGLE -->
+  <div class="twofa-toggle-bar">
+    <div class="tfa-left">
+      <span class="tfa-icon">🔐</span>
+      <div>
+        <div class="tfa-title">Ikki faktorli autentifikatsiya (2FA)</div>
+        <div class="tfa-sub">Yoqib/o'chirib ikki xil stsenariyni ko'ring</div>
+      </div>
+    </div>
+    <div class="tfa-right">
+      <span class="tfa-status off" id="toggleStatus">O'CHIQ</span>
+      <label class="toggle">
+        <input type="checkbox" id="mfaToggle" onchange="onMfaToggle()" />
+        <span class="toggle-slider"></span>
+      </label>
+    </div>
+  </div>
+
+  <!-- TWO PANELS -->
+  <div class="panels">
+
+    <!-- LEFT: Instagram Profile -->
+    <div class="browser">
+      <div class="browser-bar dark">
+        <div class="b-dots">
+          <div class="b-dot r"></div>
+          <div class="b-dot y"></div>
+          <div class="b-dot g"></div>
+        </div>
+        <div class="b-url-dark">
+          <span class="url-ig">instagram.com</span> / @qudratillo.xudayberdiyev
+        </div>
+      </div>
+      <div class="profile-panel">
+        <div class="profile-body">
+          <div class="prof-header">
+            <div class="prof-avatar">
+              <div class="prof-avatar-inner">XQ</div>
+            </div> 
+            <div class="prof-name-wrap">
+              <div class="prof-name">Xudayberdiyev Qudratillo</div>
+              <div class="prof-username">@qudratillo.xudayberdiyev</div>
+              <button class="prof-follow-btn">Kuzatish</button>
+            </div>
+          </div>
+          <div class="prof-stats">
+            <div class="prof-stat">
+              <div class="prof-stat-n">312</div>
+              <div class="prof-stat-l">postlar</div>
+            </div>
+            <div class="prof-stat">
+              <div class="prof-stat-n">2.4K</div>
+              <div class="prof-stat-l">kuzatuvchilar</div>
+            </div>
+            <div class="prof-stat">
+              <div class="prof-stat-n">489</div>
+              <div class="prof-stat-l">kuzatiladi</div>
+            </div>
+          </div>
+          <div class="prof-bio">
+            <div class="prof-bio-row">🏠 <span>Quvasoy shahar, Farg'ona</span></div>
+            <div class="prof-bio-row">🎂 <span>Tug'ilgan kun: <b>1 noyabr 1985</b></span></div>
+            <div class="prof-bio-row">💻 <span>IT mutaxassis | <b>Informatika va matematika o'qituvchisi</b></span></div>
+            <div class="prof-bio-row">⚽ <span>Milan ishqibozi — <b>FORZA MILAN!</b></span></div>
+            <div class="prof-bio-row">📍 <span>Manzil: Yangiyer, 164-uy</span></div>
+          </div>
+        </div>
+        <div class="hint-section">
+          <div class="hint-label">▲ DIQQAT QILING — BU MA'LUMOTLAR XAVFLI</div>
+          <div class="hint-tags">
+            <div class="hint-tag" onclick="useHint(this,'Qudratillo')">🔤 Qudratillo</div>
+            <div class="hint-tag" onclick="useHint(this,'1985')">📅 1985</div>
+            <div class="hint-tag" onclick="useHint(this,'1')">🔢 1</div>
+            <div class="hint-tag" onclick="useHint(this,'11')">🔢 11</div>
+            <div class="hint-tag" onclick="useHint(this,'Milan')">⚽ Milan</div>
+            <div class="hint-tag" onclick="useHint(this,'Quvasoy')">🏠 Quvasoy</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT: Login -->
+    <div class="browser login-panel">
+      <div class="browser-bar light">
+        <div class="b-dots">
+          <div class="b-dot r"></div>
+          <div class="b-dot y"></div>
+          <div class="b-dot g"></div>
+        </div>
+        <div class="b-url-light">
+          <span class="url-lock">🔒</span>
+          <span style="color:#cc2366;">https://www.instagram.com/login</span> — 🔒
+        </div>
+      </div>
+      <div class="login-body">
+        <div class="ig-logo-wrap">
+          <span class="ig-logo-img"> <img src="logo.jpeg"></span>
+          
+          <span class="ig-logo-text">Instagram</span>
+        </div>
+        <input class="ig-input" type="text" value="@qudratillo.xudayberdiyev" readonly />
+        <input class="ig-input" type="password" id="pwField" placeholder="Parol kiriting..." />
+        <button class="ig-login-btn" id="loginBtn" disabled onclick="tryLogin()">Kirish</button>
+
+        <div class="ig-err" id="errMsg">
+          <div>
+            <div class="ig-err-title">🚫 Parol noto'g'ri!</div>
+            <div class="ig-err-sub" id="errSub">Qayta urinib ko'ring.</div>
+          </div>
+        </div>
+        <div class="l-tries" id="triesLeft"></div>
+        <div class="attempt-log" id="attemptLog"></div>
+
+        <!-- 2FA -->
+        <div class="twofa-panel" id="tfaPanel">
+          <div class="twofa-title">📱 Ikki bosqichli tekshiruv</div>
+          <div class="twofa-sub">Telefoningizga SMS yuborildi.<br><b>Mashq uchun kod: 482619</b></div>
+          <div class="code-boxes" id="codeBoxes">
+            <div class="code-box" id="cb0">-</div>
+            <div class="code-box" id="cb1">-</div>
+            <div class="code-box" id="cb2">-</div>
+            <div class="code-box" id="cb3">-</div>
+            <div class="code-box" id="cb4">-</div>
+            <div class="code-box" id="cb5">-</div>
+          </div>
+          <input class="code-input" type="text" id="tfaInput" maxlength="6" placeholder="• • • • • •"
+            autocomplete="off" />
+          <button class="twofa-btn" onclick="verifyTfa()">Tasdiqlash</button>
+          <div class="twofa-err" id="tfaErr">Kod noto'g'ri! Qayta urinib ko'ring.</div>
+        </div>
+
+        <!-- Success -->
+        <div class="success-panel" id="successPanel">
+          <div class="success-icon">🎉</div>
+          <div class="success-title">Tabriklaymiz! Parol topildi!</div>
+          <div class="success-sub">
+            Parol: <span class="pw-pill" id="foundPw"></span><br>
+            <span id="successNote"></span>
+          </div>
+        </div>
+
+        <button class="reset-btn" id="resetBtn" onclick="resetAll()">↺ Qayta boshlash</button>
+      </div>
+    </div>
+
+  </div><!-- end panels -->
+
+  <script>
+    var CORRECT = '1111985Qudratillo';
+    var TFA_CODE = '482619';
+    var attempts = [], solved = false, waitTfa = false, mfaOn = false, maxTries = 10;
+
+    window.addEventListener('DOMContentLoaded', function () {
+      var pw = document.getElementById('pwField');
+      pw.addEventListener('input', function () {
+        document.getElementById('loginBtn').disabled = pw.value.length < 2;
+        hide('errMsg');
+      });
+      pw.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' && !document.getElementById('loginBtn').disabled) tryLogin();
+      });
+      var tfa = document.getElementById('tfaInput');
+      tfa.addEventListener('input', function () { updateBoxes(tfa.value); });
+      tfa.addEventListener('keydown', function (e) { if (e.key === 'Enter') verifyTfa(); });
+    });
+
+    function onMfaToggle() {
+      mfaOn = document.getElementById('mfaToggle').checked;
+      var st = document.getElementById('toggleStatus');
+      st.textContent = mfaOn ? 'YOQIQ' : "O'CHIQ";
+      st.className = 'tfa-status ' + (mfaOn ? 'on' : 'off');
+      resetAll();
+    }
+
+    function tryLogin() {
+      if (solved || waitTfa) return;
+      var pw = document.getElementById('pwField').value.trim();
+      if (!pw) return;
+      if (pw === CORRECT) {
+        attempts.push({ pw: pw, ok: true });
+        updateLog();
+        document.getElementById('pwField').value = '';
+        document.getElementById('loginBtn').disabled = true;
+        hide('errMsg');
+        document.getElementById('triesLeft').textContent = '';
+        if (mfaOn) {
+          waitTfa = true;
+          show('tfaPanel');
+          document.getElementById('tfaInput').focus();
+        } else {
+          solved = true;
+          document.getElementById('foundPw').textContent = pw;
+          document.getElementById('successNote').textContent = "2FA yo'q edi — hujumchi darhol kirdi!";
+          show('successPanel');
+          document.getElementById('resetBtn').classList.add('show');
+        }
+      } else {
+        attempts.push({ pw: pw, ok: false });
+        updateLog();
+        document.getElementById('pwField').value = '';
+        document.getElementById('loginBtn').disabled = true;
+        var wrongs = attempts.filter(function (a) { return !a.ok; }).length;
+        var left = maxTries - wrongs;
+        var sub = document.getElementById('errSub');
+        if (left <= 0) {
+          sub.textContent = 'Urinishlar tugadi!';
+          document.getElementById('loginBtn').disabled = true;
+          document.getElementById('resetBtn').classList.add('show');
+        } else {
+          sub.textContent = left + ' ta urinish qoldi.';
+        }
+        show('errMsg');
+      }
+    }
+
+    function verifyTfa() {
+      var code = document.getElementById('tfaInput').value.trim();
+      if (code === TFA_CODE) {
+        hide('tfaPanel');
+        solved = true; waitTfa = false;
+        document.getElementById('foundPw').textContent = CORRECT;
+        document.getElementById('successNote').innerHTML =
+          '2FA yoqiq edi — hujumchi telefon kodiga <b>ega emas</b>.<br>' +
+          '<span style="color:#166534;font-weight:600;">Haqiqiy hujumda bu uni to\'xtatadi! ✓</span>';
+        show('successPanel');
+        document.getElementById('resetBtn').classList.add('show');
+      } else {
+        document.getElementById('tfaErr').classList.add('show');
+        document.getElementById('tfaInput').value = '';
+        updateBoxes('');
+      }
+    }
+
+    function updateBoxes(val) {
+      for (var i = 0; i < 6; i++) {
+        var b = document.getElementById('cb' + i);
+        if (val[i]) { b.textContent = val[i]; b.classList.add('filled'); }
+        else { b.textContent = '-'; b.classList.remove('filled'); }
+      }
+    }
+
+    function useHint(el, text) {
+      if (el.classList.contains('used')) return;
+      el.classList.add('used');
+      var f = document.getElementById('pwField');
+      f.value += text; f.focus();
+      document.getElementById('loginBtn').disabled = f.value.length < 2;
+    }
+
+    function updateLog() {
+      document.getElementById('attemptLog').innerHTML = attempts.slice(-6).reverse().map(function (a) {
+        var p = a.pw.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+        return '<div class="attempt-row"><span class="attempt-pw">' + p + '</span>' +
+          '<span class="a-badge ' + (a.ok ? 'ok' : 'fail') + '">' + (a.ok ? '✓ To\'g\'ri' : '✗ Xato') + '</span></div>';
+      }).join('');
+    }
+
+    function resetAll() {
+      attempts = []; solved = false; waitTfa = false;
+      document.getElementById('pwField').value = '';
+      document.getElementById('loginBtn').disabled = true;
+      document.getElementById('attemptLog').innerHTML = '';
+      document.getElementById('triesLeft').textContent = '';
+      document.getElementById('tfaInput').value = '';
+      document.getElementById('tfaErr').classList.remove('show');
+      updateBoxes('');
+      hide('errMsg'); hide('tfaPanel'); hide('successPanel');
+      document.getElementById('resetBtn').classList.remove('show');
+      document.querySelectorAll('.hint-tag').forEach(function (t) { t.classList.remove('used'); });
+    }
+
+    function show(id) { document.getElementById(id).classList.add('show'); }
+    function hide(id) { document.getElementById(id).classList.remove('show'); }
+  </script>
+</body>
+
+</html>
